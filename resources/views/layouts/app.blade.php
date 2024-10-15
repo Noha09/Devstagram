@@ -18,7 +18,7 @@
 
                 @auth()
                     <nav class="flex gap-2 items-center">
-                        <a class="font-bold text-gray-600 text-sm" href="{{ route('post.index')}}">
+                        <a class="font-bold text-gray-600 text-sm" href="{{ route('post.index', Auth::user()->username)}}">
                             Hola: <span class="font-normal">{{ Auth::user()->username }}</span>
                         </a>
 
