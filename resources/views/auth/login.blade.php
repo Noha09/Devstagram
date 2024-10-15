@@ -69,6 +69,11 @@ Inicia Sesion en DevStagram
                     @enderror
                 </div>
 
+                <div class="mb-5">
+                    <input id="remember" type="checkbox" name="remember" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                    <label for="remember" class="text-gray-500 font-medium text-sm">Recuerdame</label>
+                </div>
+
                 <input 
                     type="submit" 
                     value="Iniciar Sesion"
