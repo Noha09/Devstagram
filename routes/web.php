@@ -21,5 +21,6 @@ Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
 Route::get('/{user:username}', [PostController::class, 'index']) ->name('post.index')->middleware('auth');
 Route::get('/post/create', [PostController::class, 'create']) ->name('post.create')->middleware('auth');
+Route::post('/posts', [PostController::class, 'store']) ->name('post.store')->middleware('auth');
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('img.store')->middleware('auth');

@@ -8,21 +8,26 @@ const dropzone = new Dropzone("#dropzone", {
     addRemoveLinks: true,
     dictRemoveFile: 'Borrar archivo',
     maxFiles: 1,
-    uploadMultiple: false
-});
+    uploadMultiple: false,
 
-dropzone.on('sending', (file, xhr, frormData) => {
-    console.log(frormData);
+    init: function() {
+        if(document.querySelector('[name="imagen"]').value.trim()) {
+            const imgPublicada = {};
+            imgPublicada.size = 1234;
+            imgPublicada.name = document.querySelector('[name="imagen"]').value;
+
+            this.options.addedfile.call(this, imgPublicada);
+            this.options.thumbnail.call(this, imgPublicada, `../uploads/${imgPublicada.name}`);
+
+            imgPublicada.previewElement.classList.add('dz-success', 'dz-complete');
+        }
+    },
 });
 
 dropzone.on('success', (file, response) => {
-    console.log(response);
-});
-
-dropzone.on('error', (file, message) => {
-    console.log(message);
+    document.querySelector('[name="imagen"]').value = response.imagen;
 });
 
 dropzone.on('removedfile', (file, message) => {
-    console.log("Archivo eliminado");
+    document.querySelector('[name="imagen"]').value = "";
 });
