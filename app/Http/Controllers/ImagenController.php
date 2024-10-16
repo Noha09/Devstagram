@@ -19,7 +19,7 @@ class ImagenController extends Controller
         $nombreImg = Str::uuid() . "." . $img->extension();
 
         $imgServe = $manager->read($img);
-        $imgServe->scale(1000,1000);
+        $imgServe->cover(1000,1000);
 
         $imgPath = public_path('uploads') . '/' . $nombreImg;
         $imgServe->save($imgPath);
