@@ -25,7 +25,7 @@
                 </p>
 
                 <p class="text-gray-800 text-sm mb-3 font-bold">
-                    0
+                    {{ $posts->count() }}
                     <span class="font-normal"> Post</span>
                 </p>
             </div>
@@ -44,6 +44,10 @@
                         </a>
                     </div>
                 @endforeach
+            </div>
+
+            <div class="my-10">
+                {{ $posts->links('pagination::tailwind') }}
             </div>
         @else
             <p class="text-gray-600 uppercase text-center text-sm font-bold">Sin Publicaciones</p>
