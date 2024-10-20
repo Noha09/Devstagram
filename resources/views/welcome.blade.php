@@ -5,5 +5,7 @@ Holaaaaa
 @endsection
 
 @section('contenido')
-Adios
+<div class="container p-5">
+    Adios
+</div>
 @endsection

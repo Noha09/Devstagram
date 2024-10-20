@@ -19,9 +19,12 @@ Route::post('/login', [LoginController::class, 'store']);
 
 Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::get('/{user:username}', [PostController::class, 'index']) ->name('post.index')->middleware('auth');
-Route::get('/posts/create', [PostController::class, 'create']) ->name('post.create')->middleware('auth');
-Route::post('/posts', [PostController::class, 'store']) ->name('post.store')->middleware('auth');
-Route::get('/{user:username}/posts/{post}', [PostController::class, 'show']) ->name('post.show')->middleware('auth');
+Route::middleware('auth')->group(function(){
+    Route::get('/posts/create', [PostController::class, 'create']) ->name('post.create');
+    Route::post('/posts', [PostController::class, 'store']) ->name('post.store');
+});
+
+Route::get('/{user:username}', [PostController::class, 'index']) ->name('post.index');
+Route::get('/{user:username}/posts/{post}', [PostController::class, 'show']) ->name('post.show');
 
 Route::post('/imagenes', [ImagenController::class, 'store'])->name('img.store')->middleware('auth');

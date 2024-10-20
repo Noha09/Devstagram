@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <section class="container mx-auto mt-10">
+    <section class="container mx-auto mt-10 p-5">
         <h1 class="font-black text-center text-4xl my-10">Publicaciones</h1>
 
         @if ($posts->count())
