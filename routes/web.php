@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/{user:username}/posts/{post}', [ComentarioController::class, 'store']) ->name('comentario.store');
 
     Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('post.likes.store');
+    Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('post.likes.destroy');
 });
 
 Route::get('/{user:username}', [PostController::class, 'index']) ->name('post.index');
