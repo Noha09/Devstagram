@@ -29,18 +29,18 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/imagenes', [ImagenController::class, 'store'])->name('img.store');
 
-    Route::get('/posts/create', [PostController::class, 'create']) ->name('post.create');
-    Route::post('/posts', [PostController::class, 'store']) ->name('post.store');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('post.create');
+    Route::post('/posts', [PostController::class, 'store'])->name('post.store');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 
-    Route::post('/{user:username}/posts/{post}', [ComentarioController::class, 'store']) ->name('comentario.store');
+    Route::post('/{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentario.store');
 
     Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('post.likes.store');
     Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('post.likes.destroy');
-
-    Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
-    Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
 });
 
-Route::get('/{user:username}', [PostController::class, 'index']) ->name('post.index');
-Route::get('/{user:username}/posts/{post}', [PostController::class, 'show']) ->name('post.show');
+Route::get('/{user:username}', [PostController::class, 'index'])->name('post.index');
+Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('post.show');
+
+Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
