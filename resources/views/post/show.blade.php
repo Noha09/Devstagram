@@ -57,7 +57,7 @@
             </div>
 
             @auth
-                @if ( $post->user_id === Auth::user()->id )
+                @if ( $post->user_id === auth()->user()->id )
                     <form action="{{ route('post.destroy', $post) }}" method="POST">
                         @method('DELETE')
                         @csrf
