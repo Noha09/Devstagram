@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('titulo')
-Holaaaaa
+    Pagina principal
 @endsection
 
 @section('contenido')
-<div class="container p-5">
-    Adios
-</div>
+    Pagina principal
 @endsection
